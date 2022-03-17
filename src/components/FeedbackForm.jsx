@@ -14,7 +14,7 @@ function FeedbackForm() {
     if (text === "") {
       setBtnDisabled(true);
       setMsg(null);
-    } else if (text != "" && text.trim().length <= 10) {
+    } else if (text !== "" && text.trim().length <= 10) {
       setMsg("Text must be at least 10 characters");
       setBtnDisabled(true);
     } else {
