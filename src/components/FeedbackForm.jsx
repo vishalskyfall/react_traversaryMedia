@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useEffect} from "react";
+import FeedbackContext from "../context/FeedbackContext";
 import RatingSelect from "./RatingSelect";
 import Button from "./shared/Button";
 import Card from "./shared/Card";
 
-function FeedbackForm({ handleAdd }) {
+function FeedbackForm() {
   const [text, setText] = useState("");
   const [rating, setRating] = useState(10);
   const [btnDisabled, setBtnDisabled] = useState(true);
@@ -30,10 +31,24 @@ function FeedbackForm({ handleAdd }) {
         text,
         rating,
       };
-      handleAdd(newFeedback);
+      if(feedbackEdit.edit === true){
+        updateFeedback(feedbackEdit.item.id,newFeedback);
+      }else{
+      addFeedback(newFeedback);
+      }
       setText("");
     }
   };
+
+const {addFeedback,feedbackEdit,updateFeedback}=useContext(FeedbackContext);
+useEffect(()=>{
+  if(feedbackEdit.edit===true){
+    setBtnDisabled(false)
+    setText(feedbackEdit.item.text)
+    setRating(feedbackEdit.item.rating)
+  }
+
+},[feedbackEdit]) //feedbackEdit par click karsu etli var effect call karse
 
   return (
     <Card>
