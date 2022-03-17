@@ -1,0 +1,24 @@
+{
+    "feedback":[
+        {
+            "id":1,
+            "rating":9,
+            "text":"This is feedback item coming from backend"
+        },
+        {
+            "id":2,
+            "rating":10,
+            "text":"This is feedback kamins coming from backend"
+        },
+        {
+            "id":3,
+            "rating":6,
+            "text":"This is tatti item coming from backend"
+        },
+        {
+            "id":4,
+            "rating":4,
+            "text":"This is lauda niki f1 champ coming from backend"
+        }
+    ]
+}
